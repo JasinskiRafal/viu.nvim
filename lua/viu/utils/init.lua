@@ -281,6 +281,10 @@ M.buf_insert_data_with_padding = function(buf_id, data, horizontal_padding, vert
 
   insert_blank_lines(data_with_padding, vertical_padding)
   for _, line in ipairs(data) do
+    if opts.render.remove_cr then
+      line = string.gsub(line, "\r", "")
+    end
+
     table.insert(data_with_padding, horizontal_string .. line)
   end
 
