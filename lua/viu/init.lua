@@ -3,15 +3,15 @@ local M = {}
 
 local async = require("plenary.async")
 
-local config = require("chafa.config")
-local utils = require("chafa.utils")
-local options = require("chafa.options")
+local config = require("viu.config")
+local utils = require("viu.utils")
+local options = require("viu.options")
 
 local global_opts = nil
 
 ---@diagnostic disable-next-line: unused-local
 local get_image_data_sync = function(buf_path, width, height, opts, callback)
-  local command = { "chafa", buf_path, "--size", width .. "x" .. height }
+  local command = { "viu", buf_path, "--width", width, "--height", height }
 
   vim.fn.jobstart(command, {
     stdout_buffered = true,
@@ -78,7 +78,7 @@ function M.setup(user_opts)
       on_image_open(true)
     end)
   end, {
-    desc = "View an image in a new buffer with chafa",
+    desc = "View an image in a new buffer with viu",
   })
 end
 

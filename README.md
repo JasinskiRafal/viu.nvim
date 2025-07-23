@@ -1,32 +1,31 @@
-# chafa.nvim
+# viu.nvim
 
 A neovim plugin for viewing images.
 
-![demo](https://user-images.githubusercontent.com/47204120/211049752-7790771d-2f72-4c6c-94a0-9c0fefe650db.gif)
-
-> This plugin uses [chafa](https://github.com/hpjansson/chafa) under the hood to convert images to an output that can be printed in a terminal. It then uses [baleia](https://github.com/m00qek/baleia.nvim) to colorize text with ANSI escape sequences
+> This plugin uses [viu](https://github.com/atanunq/viu) under the hood to convert images to an output that can be printed in a terminal. It then uses [baleia](https://github.com/m00qek/baleia.nvim) to colorize text with ANSI escape sequences. [plenary](https://github.com/nvim-lua/plenary.nvim) is used for utility functions
 
 ## Prerequisites
 
-- Install [chafa](https://github.com/hpjansson/chafa) and make sure it is in your path
+- Install [viu](https://github.com/atanunq/viu) and make sure it is in your path
 - Neovim 0.7+
 
 ## Installation
 
-```lua
-use {
-  "princejoogie/chafa.nvim",
-  requires = {
+```lua Lazy
+return {
+  "JasinskiRafal/viu.nvim",
+  dependencies = {
     "nvim-lua/plenary.nvim",
     "m00qek/baleia.nvim"
   },
+  opts = {}
 }
 ```
 
-## Setup
+## Default Config
 
 ```lua
-require("chafa").setup({
+{
   render = {
     min_padding = 5,
     show_label = true,
@@ -34,11 +33,13 @@ require("chafa").setup({
   events = {
     update_on_nvim_resize = true,
   },
-})
+}
 ```
 
 ## User Commands
 
 This plugin creates a `ViewImage` user command which you can manually call in svg files to view them in a separate buffer.
 
-![view_image_demo](https://user-images.githubusercontent.com/47204120/211049821-1913bd5a-e943-4857-9a71-7cec433925d3.gif)
+
+## Acknowledgement
+This plugin is a fork of [chafa.nvim](https://github.com/princejoogie/chafa.nvim), huge thanks for the initial work done by **princejoogie**
