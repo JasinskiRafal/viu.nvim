@@ -13,14 +13,9 @@ M.SUPPORTED_FILE_PATTERNS = {
 M.BUFFER_OPTIONS_BEFORE = {}
 
 M.DEFAULT_OPTS = {
-  render = {
-    min_padding = 5,
-    show_label = true,
-    remove_cr = true,
-  },
-  events = {
-    update_on_nvim_resize = true,
-  },
+  min_padding = 5,
+  show_label = true,
+  remove_cr = true,
 }
 
 return M

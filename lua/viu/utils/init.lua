@@ -233,7 +233,7 @@ local get_image_width_height = function(file)
 end
 
 M.calculate_ascii_width_height = function(buf_id, buf_path, opts)
-  local padding = opts.render.min_padding
+  local padding = opts.min_padding
   local win_width = vim.api.nvim_win_get_width(buf_id)
   local win_height = vim.api.nvim_win_get_height(buf_id)
 
@@ -281,7 +281,7 @@ M.buf_insert_data_with_padding = function(buf_id, data, horizontal_padding, vert
 
   insert_blank_lines(data_with_padding, vertical_padding)
   for _, line in ipairs(data) do
-    if opts.render.remove_cr then
+    if opts.remove_cr then
       line = string.gsub(line, "\r", "")
     end
 
@@ -290,7 +290,7 @@ M.buf_insert_data_with_padding = function(buf_id, data, horizontal_padding, vert
 
   table.insert(data_with_padding, "")
 
-  if opts.render.show_label then
+  if opts.show_label then
     table.insert(data_with_padding, label)
   else
     table.insert(data_with_padding, "")

@@ -58,12 +58,7 @@ function M.setup(user_opts)
   user_opts = user_opts or {}
   global_opts = vim.tbl_deep_extend("force", config.DEFAULT_OPTS, user_opts)
 
-  local autocmds = { "BufRead" }
-  if global_opts.events.update_on_nvim_resize then
-    table.insert(autocmds, "VimResized")
-  end
-
-  vim.api.nvim_create_autocmd(autocmds, {
+  vim.api.nvim_create_autocmd("BufRead", {
     group = vim.api.nvim_create_augroup("ImageOpen", { clear = false }),
     pattern = config.SUPPORTED_FILE_PATTERNS,
     callback = function()
