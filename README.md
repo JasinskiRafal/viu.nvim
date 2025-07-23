@@ -26,21 +26,11 @@ return {
 
 ```lua
 {
-  render = {
-    min_padding = 5,
-    show_label = true,
-    remove_cr = true,
-  },
-  events = {
-    update_on_nvim_resize = true,
-  },
+  min_padding = 5,
+  show_label = true,
+  remove_cr = true,
 }
 ```
-
-## User Commands
-
-This plugin creates a `ViewImage` user command which you can manually call in svg files to view them in a separate buffer.
-
 
 ## Acknowledgement
 This plugin is a fork of [chafa.nvim](https://github.com/princejoogie/chafa.nvim), huge thanks for the initial work done by **princejoogie**
